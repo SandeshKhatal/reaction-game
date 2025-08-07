@@ -2,78 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Reaction Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My eCommerce Store</title>
   <style>
     body {
-      text-align: center;
       font-family: Arial, sans-serif;
-      margin-top: 50px;
-      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
     }
-
-    h1 {
-      color: #333;
-    }
-
-    button {
-      padding: 15px 30px;
-      font-size: 18px;
-      margin: 10px;
-      cursor: pointer;
-    }
-
-    #clickBtn.green {
-      background-color: green;
+    header {
+      background-color: #333;
       color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
-    #result {
-      font-size: 20px;
-      margin-top: 20px;
-      color: #007bff;
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
     }
-  </style>
-</head>
-<body>
-  <h1>Reaction Game</h1>
-  <p>Click the button as fast as you can when it turns green!</p>
-  <button id="startBtn">Start</button>
-  <button id="clickBtn" disabled>Click Me!</button>
-  <p id="result"></p>
-
-  <script>
-    let startBtn = document.getElementById("startBtn");
-    let clickBtn = document.getElementById("clickBtn");
-    let result = document.getElementById("result");
-    let startTime;
-
-    startBtn.addEventListener("click", () => {
-      result.textContent = "Wait for it...";
-      clickBtn.disabled = true;
-      clickBtn.classList.remove("green");
-
-      let delay = Math.random() * 3000 + 2000; // 2–5 seconds
-
-      setTimeout(() => {
-        clickBtn.disabled = false;
-        clickBtn.classList.add("green");
-        result.textContent = "Click now!";
-        startTime = new Date();
-      }, delay);
-    });
-
-    clickBtn.addEventListener("click", () => {
-      if (!clickBtn.classList.contains("green")) {
-        result.textContent = "Too soon! Wait for green.";
-        return;
-      }
-
-      let endTime = new Date();
-      let reactionTime = (endTime - startTime) / 1000;
-      result.textContent = `Your reaction time: ${reactionTime.toFixed(3)} seconds!`;
-      clickBtn.disabled = true;
-      clickBtn.classList.remove("green");
-    });
-  </script>
-</body>
-</html>
+    .hero {
+      background-color: #f4f4f4;
